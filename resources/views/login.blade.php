@@ -16,7 +16,6 @@
     </title>
     <!-- Fonts -->
     {{-- CSS --}}
-    {{-- <link rel="stylesheet" href="{{ asset('assets/font/*.woff*') }}"> --}}
     <link rel="stylesheet" href="{{ asset('assets/plugin/bootstrap-5.0.2-dist/css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/plugin/icons-1.10.4/font/bootstrap-icons.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/plugin/themify-icons-font/themify-icons.css') }}">
@@ -24,8 +23,6 @@
     <link rel="stylesheet" href="{{ asset('assets/css/template.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
     {{-- <link rel="stylesheet" href="{{ asset('build/assets/app-f6c8e683.css') }}"> --}}
-    {{-- @vite('resources/css/app.css') --}}
-    {{-- @vite(['public/jquery-3.6.4.min.js', 'resources/js/app.js']) --}}
 </head>
 
 <body class="page-login" style="background-image:
@@ -123,12 +120,38 @@
 </body>
 {{-- Javascript --}}
 {{-- Gọi từ trong forder public --}}
-<script src="assets/plugin/jquery-3.6.4.min.js"></script>
-<script src="assets/plugin/popper.min.js"></script>
-<script src="assets/plugin/bootstrap-5.0.2-dist/js/bootstrap.js"></script>
+<script src="{{ asset('assets/plugin/jquery-3.6.4.min.js') }}"></script>
+<script src="{{ asset('assets/plugin/popper.min.js') }}"></script>
+<script src="{{ asset('assets/plugin/bootstrap-5.0.2-dist/js/bootstrap.js') }}"></script>
+<script src="{{ asset('assets/js/common.js') }}"></script>
+<script type="module" src="{{ asset('assets/js/form.js') }}"></script>
 <script src="{{ asset('assets/js/app-v1.js') }}"></script>
-
+<script type="module">
+    // sử dụng hàm checkLogin trong file khác
+    import  {checkLogin}  from '{{ asset("assets/js/form.js") }}';
+    (function ($) {
+      $(document).ready(function () {
+        $(".js-validateform").submit(function (event) {
+          event.preventDefault();
+          checkLogin(event, '.js-validateform');
+        });
+      });
+    })(window.jQuery);
+  </script>
 <script>
+    function ShowHide(id_form1, id_form2) {
+        let form1 = $(id_form1);
+        let form2 = $(id_form2);
+        form1.toggle();
+        form2.toggle();
+        form1.toggleClass("open-form");
+        form2.toggleClass("open-form");
+        if (form1.hasClass("open-form")) {
+            form1.find("input:first").focus();
+        } else {
+            form2.find("input:first").focus();
+        }
+    };
     (function($) {
         $(".btn-showpass").click(function(e) {
             e.preventDefault();
@@ -140,7 +163,7 @@
             $(this).find("i").toggleClass("bi-eye");
             $(this).find("i").toggleClass("bi-eye-slash");
         });
-    });
+    })(window.jQuery);
 </script>
 
 </html>
