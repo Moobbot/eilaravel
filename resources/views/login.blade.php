@@ -125,7 +125,7 @@
 <script src="{{ asset('assets/plugin/bootstrap-5.0.2-dist/js/bootstrap.js') }}"></script>
 <script src="{{ asset('assets/js/common.js') }}"></script>
 <script type="module" src="{{ asset('assets/js/form.js') }}"></script>
-<script src="{{ asset('assets/js/app-v1.js') }}"></script>
+<script src="{{ asset('assets/js/app.js') }}"></script>
 <script type="module">
     // sử dụng hàm checkLogin trong file khác
     import  {checkLogin}  from '{{ asset("assets/js/form.js") }}';
