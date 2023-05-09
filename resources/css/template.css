@@ -2,40 +2,40 @@
 
 @font-face {
     font-family: "Quicksand";
-    src: url("/assets/font/static/Quicksand-Bold.woff") format("woff"),
-        url("/assets/font/static/Quicksand-Bold.woff2") format("woff2");
+    src: url("/resources/assets/font/static/Quicksand-Bold.woff") format("woff"),
+        url("/resources/assets/font/static/Quicksand-Bold.woff2") format("woff2");
     font-weight: 700;
     font-display: swap;
 }
 
 @font-face {
     font-family: "Quicksand";
-    src: url("/assets/font/static/Quicksand-SemiBold.woff") format("woff"),
-        url("/assets/font/static/Quicksand-SemiBold.woff2") format("woff2");
+    src: url("/resources/assets/font/static/Quicksand-SemiBold.woff") format("woff"),
+        url("/resources/assets/font/static/Quicksand-SemiBold.woff2") format("woff2");
     font-weight: 600;
     font-display: swap;
 }
 
 @font-face {
     font-family: "Quicksand";
-    src: url("/assets/font/static/Quicksand-Medium.woff") format("woff"),
-        url("/assets/font/static/Quicksand-Medium.woff2") format("woff2");
+    src: url("/resources/assets/font/static/Quicksand-Medium.woff") format("woff"),
+        url("/resources/assets/font/static/Quicksand-Medium.woff2") format("woff2");
     font-weight: 500;
     font-display: swap;
 }
 
 @font-face {
     font-family: "Quicksand";
-    src: url("/assets/font/static/Quicksand-Regular.woff") format("woff"),
-        url("/assets/font/static/Quicksand-Regular.woff2") format("woff2");
+    src: url("/resources/assets/font/static/Quicksand-Regular.woff") format("woff"),
+        url("/resources/assets/font/static/Quicksand-Regular.woff2") format("woff2");
     font-weight: 400;
     font-display: swap;
 }
 
 @font-face {
     font-family: "Quicksand";
-    src: url("/assets/font/static/Quicksand-Light.woff") format("woff"),
-        url("/assets/font/static/Quicksand-Light.woff2") format("woff2");
+    src: url("/resources/assets/font/static/Quicksand-Light.woff") format("woff"),
+        url("/resources/assets/font/static/Quicksand-Light.woff2") format("woff2");
     font-weight: 300;
     font-display: swap;
 }

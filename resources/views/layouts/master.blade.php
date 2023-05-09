@@ -1,24 +1,27 @@
 {{-- resources/views/layouts/master.blade.php --}}
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
+{{-- <html lang="en  "> --}}
 
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <meta name="locale" content="{{ App::getLocale() }}" />
     @stack('meta')
     {{-- @if (isset($page_title) && strlen($page_title) != 0) {{ $page_title }}@else Laravel @endif --}}
+
     <title>@yield('title', 'Laravel')</title>
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
-    <link rel="stylesheet" href="{{ asset('assets/plugin/bootstrap-5.0.2-dist/css/bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/plugin/icons-1.10.4/font/bootstrap-icons.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/plugin/themify-icons-font/themify-icons.css') }}">
+    {{-- @vite('resources/assets/...'); --}}
+    @vite(['resources/assets/plugin/bootstrap-5.0.2-dist/css/bootstrap.css', 'resources/assets/plugin/icons-1.10.4/font/bootstrap-icons.css', 'resources/assets/plugin/themify-icons-font/themify-icons.css'])
+
+    {{-- @vite() --}}
     <!-- END GLOBAL MANDATORY STYLES -->
 
     <!-- BEGIN THEME GLOBAL STYLES - CSS Plugins for Most Pages -->
-    <link rel="stylesheet" href="{{ asset('assets/css/alter.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/template.css') }}">
+    @vite(['resources/css/alter.css', 'resources/css/template.css'])
     <!-- END THEME GLOBAL STYLES -->
 
     <!-- BEGIN PAGE LEVEL PLUGINS -->
@@ -39,6 +42,16 @@
     {{-- @section('sidebar') @show  Nếu dùng @show sẽ xác định nội dung bên trong section và xây dựng html --}}
     {{-- @yield('content', 'Default content') --}}
     @section('content')
+        <div class="test-lang"
+            style="position: fixed; top: 50px; left: 50px; z-index: 999; font-size: 20px; background-color: pink; padding: 10px 15px;">
+            <a href="{{ route('app.setLocale', ['locale' => 'en']) }}">
+                EN
+            </a>
+
+            <a href="{{ route('app.setLocale', ['locale' => 'vi']) }}">
+                VI
+            </a>
+        </div>
     @show
     {{-- <div id="app">
         @yield('app')
@@ -47,13 +60,13 @@
 </body>
 
 <!-- BEGIN GLOBAL MANDATORY STYLES -->
-<script src="{{ asset('assets/plugin/jquery-3.6.4.min.js') }}"></script>
-<script src="{{ asset('assets/plugin/popper.min.js') }}"></script>
-<script src="{{ asset('assets/plugin/bootstrap-5.0.2-dist/js/bootstrap.js') }}"></script>
+@vite('resources/assets/plugin/jquery-3.6.4.min.js')
+@vite('resources/assets/plugin/popper.min.js')
+@vite('resources/assets/plugin/bootstrap-5.0.2-dist/js/bootstrap.js')
 <!-- END GLOBAL MANDATORY STYLES -->
 
 <!-- BEGIN THEME GLOBAL STYLES - JS Plugins for Most Pages -->
-<script src="{{ asset('assets/js/common.js') }}"></script>
+@vite('resources/js/common.js')
 <!-- END THEME GLOBAL STYLES -->
 
 <!-- BEGIN PAGE LEVEL PLUGINS -->

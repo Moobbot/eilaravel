@@ -82,7 +82,11 @@ return [
     |
     */
 
-    'locale' => 'en',
+    // 'locale' => 'en',
+    'locale' => 'vi', //ngôn ngữ mặc định
+
+    // Bổ sung thêm danh sách các ngôn ngữ
+    'locales' => ['vi', 'en'],
 
     /*
     |--------------------------------------------------------------------------

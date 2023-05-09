@@ -8,30 +8,34 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+use App\Http\Requests\LoginRequest;
 
 class CustomAuthController extends Controller
 {
 
     public function index()
     {
-        return view('auth.login', ['page_title' => "Đăng nhập"]);
+        return view('auth.login');
     }
 
 
-    public function customLogin(Request $request)
+    public function customLogin(LoginRequest $request)
     {
-        $request->validate([
-            'email' => 'required',
-            'password' => 'required',
-        ]);
+        // $email = $request->input('email');
+        // $password = $request->input('password');
+        // // echo $email;
+        // // $request->validate([
+        // //     'email' => ['required', 'email'],
+        // //     'password' => 'required',
+        // // ]);
 
-        $credentials = $request->only('email', 'password');
-        if (Auth::attempt($credentials)) {
-            return redirect()->intended('dashboard')
-                ->withSuccess('Signed in');
-        }
+        // $credentials = $request->only('email', 'password');
+        // if (Auth::attempt($credentials)) {
+        //     return redirect()->intended('dashboard')
+        //         ->withSuccess('Signed in');
+        // }
 
-        return redirect("login")->withSuccess('Tài khoản hoặc mật khẩu không đúng!');
+        // return redirect("login")->withSuccess('Tài khoản hoặc mật khẩu không đúng!');
     }
 
 

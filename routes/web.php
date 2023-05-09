@@ -5,6 +5,11 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 // Gọi Controllers sử dụng
 use App\Http\Controllers\CustomAuthController;
+// Multi language
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Session;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,6 +20,16 @@ use App\Http\Controllers\CustomAuthController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+/* Edit Language start */
+
+Route::get('setLocale/{locale}', function ($locale) {
+    if (in_array($locale, Config::get('app.locales'))) {
+        Session::put('locale', $locale);
+    }
+    return redirect()->back();
+})->name('app.setLocale');
+/* Edit Language End */
 
 Route::view('/', 'welcome', ['page_title' => "Trang chủ"]);
 Route::redirect('/home', '/'); // dường link "home" dẫn vào "/"
