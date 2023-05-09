@@ -22,6 +22,11 @@
 
     <!-- BEGIN THEME GLOBAL STYLES - CSS Plugins for Most Pages -->
     @vite(['resources/css/alter.css', 'resources/css/template.css'])
+    <style>
+        .logo-preload {
+            background-image: url('./uploads/logo/logo-preload.svg');
+        }
+    </style>
     <!-- END THEME GLOBAL STYLES -->
 
     <!-- BEGIN PAGE LEVEL PLUGINS -->

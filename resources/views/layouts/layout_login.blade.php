@@ -13,3 +13,10 @@
     @vite('resources/js/validate.js')
     @vite('resources/js/form.js')
 @endprepend
+@push('css-plugins')
+    <style>
+        .page-login {
+            background-image: url({{ asset('/uploads/background_login.png') }});
+        }
+    </style>
+@endpush

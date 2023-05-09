@@ -68,7 +68,7 @@
                             <div class="form-outline d-none">
                                 <div class="checkbox ms-2">
                                     <label class="d-flex align-items-center">
-                                        <input type="checkbox" name="remember" class="me-2"> Remember Me
+                                        <input type="checkbox" name="remember" class="me-2"> {{ __('Remember Me') }}
                                     </label>
                                 </div>
                             </div>
@@ -76,9 +76,9 @@
                             <button type="submit" class="btn btn-login mb-4">{{ __('Login') }}</button>
                             <div class="text-center forgot-password">
                                 <!-- Forgot password buttons -->
-                                <p><a class="forgot-password-link js-showhide">{{ __('Forgotpass') }}?</a></p>
+                                <p><a class="forgot-password-link js-showhide">{{ __('Forgotten password') }}?</a></p>
                                 <!-- Register buttons -->
-                                <p>{{ __('No account') }}?<a href="register.html" class="forgot-password-link">
+                                <p>{{ __('No account') }}?<a href="registration" class="forgot-password-link">
                                         {{ __('Register') }}</a></p>
                             </div>
                     </div>
@@ -87,8 +87,8 @@
                 <form action="" id="forgot-password-form" style="display: none;">
                     <div class="login-top">
                         <a class="btn btn-back js-showhide">
-                            <img src="{{ Vite::asset('resources/assets/icon/left-arrow-0.png') }} " alt=""
-                                class="icon-back" />{{ __('Forgotpass') }}</a>
+                            <img src="{{ Vite::asset('resources/assets/icon/left-arrow-0.png') }}" alt=""
+                                class="icon-back" />{{ __('Forgotten password') }}?</a>
                     </div>
                     <div class="login-middle">
                         <img src="./uploads/logo/logo-full-428x104.png" alt="Logo EI Germeny"
@@ -115,32 +115,3 @@
         </div>
     </main>
 @endsection
-
-@push('extra_css')
-    <style>
-        .page-login {
-            background-image: url({{ asset('/uploads/background_login.png') }});
-        }
-
-        .logo-preload {
-            background-image: url('./uploads/logo/logo-preload.svg');
-        }
-    </style>
-@endpush
-
-@push('extra_js')
-    <script type="module">
-    // sử dụng hàm checkLogin trong file khác
-    // import  {checkLogin}  from '{{ asset("assets/js/form.js") }}';
-    // (function ($) {
-    //   $(document).ready(function () {
-    //     $(".js-validateform").submit(function (event) {
-    //       event.preventDefault();
-    //       checkLogin(event, '.js-validateform');
-    //     });
-    //   });
-    // })(window.jQuery);
-        // import {ShowHide} from './resources/js/app_v1.js';
-        // Form - Cho vô file js btn không nhận -export -import ko đc
-    </script>
-@endpush

@@ -54,6 +54,6 @@ Route::post('custom-registration', [CustomAuthController::class, 'customRegistra
 Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
 
 // User
-Route::get('/user/{id}', function ($id) {
-    return 'User ' . $id;
-});
+// Route::get('/user/{id}', function ($id) {
+//     return 'User ' . $id;
+// });

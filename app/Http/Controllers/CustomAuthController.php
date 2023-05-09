@@ -21,21 +21,10 @@ class CustomAuthController extends Controller
 
     public function customLogin(LoginRequest $request)
     {
-        // $email = $request->input('email');
-        // $password = $request->input('password');
-        // // echo $email;
-        // // $request->validate([
-        // //     'email' => ['required', 'email'],
-        // //     'password' => 'required',
-        // // ]);
-
-        // $credentials = $request->only('email', 'password');
-        // if (Auth::attempt($credentials)) {
-        //     return redirect()->intended('dashboard')
-        //         ->withSuccess('Signed in');
-        // }
-
-        // return redirect("login")->withSuccess('Tài khoản hoặc mật khẩu không đúng!');
+        // $input = $request->all();
+        // $input['password'] = bcrypt($input['password']);
+        // $user = User::($input);
+        // return response()->json(['success' => 'Tạo thành công'], 200);
     }
 
 
@@ -48,16 +37,20 @@ class CustomAuthController extends Controller
 
     public function customRegistration(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:6',
-        ]);
+        // $request->validate([
+        //     'name' => 'required',
+        //     'email' => 'required|email|unique:users',
+        //     'password' => 'required|min:6',
+        // ]);
 
-        $data = $request->all();
-        $check = $this->create($data);
+        // $data = $request->all();
+        // $check = $this->create($data);
 
-        return redirect("dashboard")->withSuccess('have signed-in');
+        // return redirect("dashboard")->withSuccess('have signed-in');
+        $input = $request->all();
+        $input['password'] = bcrypt($input['password']);
+        $user = User::create($input);
+        return response()->json(['success' => 'Tạo thành công'], 200);
     }
 
 

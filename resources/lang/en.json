@@ -2,13 +2,16 @@
     "Create": "Create",
     "Update": "Update",
     "Delete": "Delete",
+    "Continue": "Continue",
+    "Loading...": "Loading...",
     "Login": "Login",
     "Register": "Register",
-    "Forgotpass": "Forgot password",
+    "Password": "Password",
+    "Repeat password": "Repeat password",
+    "Forgotten password": "Forgotten password",
     "No account": "No account",
-    "Enter your email to initiate password recovery.": "Enter your email to initiate password recovery.",
-    "Continue": "Continue",
+    "Remember Me": "Remember Me",
     "Home": "Home",
-    "Loading...": "Loading...",
-    "Welcome to EI Germany!":"Welcome to EI Germany!"
+    "Enter your email to initiate password recovery.": "Enter your email to initiate password recovery.",
+    "Welcome to EI Germany!": "Welcome to EI Germany!"
 }
