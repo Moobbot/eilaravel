@@ -22,6 +22,7 @@
 
     <!-- BEGIN THEME GLOBAL STYLES - CSS Plugins for Most Pages -->
     @vite(['resources/css/alter.css', 'resources/css/template.css'])
+    @vite('resources/css/responsive.css')
     <style>
         .logo-preload {
             background-image: url('./uploads/logo/logo-preload.svg');
@@ -38,6 +39,7 @@
     @stack('css-styles') {{-- css custom styles for the current view. Style for holiday/event --}}
     <!-- BEGIN PAGE LEVEL STYLES -->
 
+
     {{-- Thêm 1 đoạn code dùng @include, @extends áp dụng cho layout --}}
     {{-- @yield hiện thị 1 phần nội dung (Gọi 1 section được định nghĩa) --}}
 
@@ -48,14 +50,11 @@
     {{-- @yield('content', 'Default content') --}}
     @section('content')
         <div class="test-lang"
-            style="position: fixed; top: 50px; left: 50px; z-index: 999; font-size: 20px; background-color: pink; padding: 10px 15px;">
-            <a href="{{ route('app.setLocale', ['locale' => 'en']) }}">
-                EN
-            </a>
+            style="position: fixed; top: 20px; right: 20px; z-index: 999; font-size: 20px; background-color: pink; padding: 5px 10px;">
+            <a href="{{ route('app.setLocale', ['locale' => 'en']) }}"
+                style="border-right: 1px solid red; padding: 5px;">EN</a>
 
-            <a href="{{ route('app.setLocale', ['locale' => 'vi']) }}">
-                VI
-            </a>
+            <a href="{{ route('app.setLocale', ['locale' => 'vi']) }}" style="padding: 5px;">VI</a>
         </div>
     @show
     {{-- <div id="app">

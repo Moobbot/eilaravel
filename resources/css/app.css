@@ -568,8 +568,7 @@ i {
 }
 
 .login-left {
-    flex: 0 0 auto;
-    width: 54.654%;
+    /* flex: 0 0 auto; */
     /* height: 100%; */
     display: flex;
     align-items: center;
@@ -580,8 +579,7 @@ i {
 }
 
 .login-right {
-    flex: 0 0 auto;
-    width: 45.346%;
+    /* flex: 0 0 auto; */
     background-color: #F6F6F6;
     /* padding-left : 52px; */
     /* padding-top  : 86px; */

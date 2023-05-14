@@ -1,0 +1,111 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+// Gọi modal người dung
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
+use App\Http\Requests\LoginRequest;
+use App\Http\Requests\RegisterRequest;
+
+class CustomAuthController extends Controller
+{
+
+    public function index()
+    {
+        return view('auth.login');
+    }
+
+
+    public function customLogin(LoginRequest $request)
+    {
+        // $input = $request->all();
+        // $input['password'] = bcrypt($input['password']);
+        // $user = User::($input);
+        // return response()->json(['success' => 'Tạo thành công'], 200);
+    }
+
+
+
+    public function registration()
+    {
+        return view('auth.registration');
+    }
+
+
+    public function customRegistration(RegisterRequest $request)
+    {
+        // $request->validate(
+        //     [
+        //         'username' => 'required',
+        //         'email' => 'required|email|unique:users',
+        //         'phone' => 'required|unique:users',
+        //         'password' => 'required|min:8',
+        //         're_password' => 'required',
+        //     ],
+        //     [
+        //         "username.required" => "Họ tên không được để trống!",
+        //         "email.required" => "Email không được để trống!",
+        //         "phone.required" => "Số điện thoại không được để trống!",
+        //         "password.required" => "Mật khẩu không được để trống!",
+        //         "re_password.required" => "Mật khẩu xác nhận không được để trống!"
+        //     ]
+        // );
+
+        // $data = $request->all();
+        // $check = $this->create($data);
+
+        // return redirect("dashboard")->withSuccess('have signed-in');
+        // $input = $request->all();
+        // $input['password'] = bcrypt($input['password']);
+        // $user = User::create($input);
+        // return response()->json(['success' => 'Tạo thành công'], 200);
+        // $validated = $request->validate(
+        //     [
+        //         "username" => "required",
+        //         "email" => "required",
+        //         "phone" => "required",
+        //         "password" => "required"
+        //     ],
+        //     [
+        //         "username.required" => "Họ tên không được để trống",
+        //         "email.required" => "Email không được để trống",
+        //         "phone.required" => "Số điện thoại không được để trống",
+        //         "password.required" => "Mật khẩu không được để trống"
+        //     ]
+        // );
+        // return $request;
+    }
+
+
+    public function create(array $data)
+    {
+        return User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password'])
+        ]);
+    }
+
+
+    public function dashboard()
+    {
+        if (Auth::check()) {
+            return view('auth.dashboard');
+        }
+
+        return redirect("login")->withSuccess('are not allowed to access');
+    }
+
+
+    public function signOut()
+    {
+        Session::flush();
+        Auth::logout();
+
+        return Redirect('login');
+    }
+}

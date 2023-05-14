@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 // Gọi Controllers sử dụng
 use App\Http\Controllers\CustomAuthController;
+use App\Http\Controllers\UserController;
 // Multi language
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Config;
@@ -46,10 +47,11 @@ Route::get('test', function () {
 // Route::view('register', 'register');\
 
 /* Thiết kế login và đăng ký tài khoản*/
-Route::get('dashboard', [CustomAuthController::class, 'dashboard']);
+// Route::get('dashboard', [CustomAuthController::class, 'dashboard']);
+Route::get('dashboard', [UserController::class, 'dashboard']);
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');
 Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom');
-Route::get('registration', [CustomAuthController::class, 'registration'])->name('register-user');
+Route::get('register', [CustomAuthController::class, 'registration'])->name('register-user');
 Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom');
 Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
 
@@ -57,3 +59,5 @@ Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout')
 // Route::get('/user/{id}', function ($id) {
 //     return 'User ' . $id;
 // });
+Route::get('/users', [UserController::class, 'index']);
+Route::get('/users/create', [UserController::class, 'create']);

@@ -15,7 +15,7 @@ return new class extends Migration
     {
         //
         Schema::table('users', function (Blueprint $table) {
-            $table->foreignId('departments_id')->constrained('departments'); //<Tên bảng>_id
+            $table->foreignId('department_id')->constrained('departments'); //<Tên bảng>_id
             $table->foreignId('status_id')->constrained('user_status'); //<Tên bảng>_id
         });
     }
@@ -29,7 +29,7 @@ return new class extends Migration
     {
         //
         Schema::table('users', function (Blueprint $table) {
-            $table->dropForeign('users_departments_id_foreign');
+            $table->dropForeign('users_department_id_foreign');
             $table->dropForeign('users_status_id_foreign');
 
             $table->dropColumn(['departments_id', 'status_id']);

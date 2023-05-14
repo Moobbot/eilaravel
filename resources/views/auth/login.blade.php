@@ -14,10 +14,10 @@
                     </div>
                 </div>
                 <div class="block-login row">
-                    <div class="login-left">
+                    <div class="login-left col-lg-7 col-md-6 d-sm-none d-md-flex">
                         <img src="./uploads/logo/logo-white-432x105.png" alt="Logo EI Germeny" class="img-fluid" />
                     </div>
-                    <div class="login-right">
+                    <div class="login-right col-12 col-lg-5 col-md-6">
                         <form method="POST" action="{{ route('login.custom') }}" id="signin-form"
                             class="open-form js-validateform">
                             @csrf
@@ -78,7 +78,7 @@
                                 <!-- Forgot password buttons -->
                                 <p><a class="forgot-password-link js-showhide">{{ __('Forgotten password') }}?</a></p>
                                 <!-- Register buttons -->
-                                <p>{{ __('No account') }}?<a href="registration" class="forgot-password-link">
+                                <p>{{ __('No account') }}?<a href="register" class="forgot-password-link">
                                         {{ __('Register') }}</a></p>
                             </div>
                     </div>
