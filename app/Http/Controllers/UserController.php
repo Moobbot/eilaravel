@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Repositories\Users\UserRepositoryInterface;
+use App\Repositories\Interface\UserRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -22,17 +22,9 @@ class UserController extends Controller
 
     public function index()
     {
-        $users = $this->userRepo->getAll();
+        $users = $this->userRepo->all();
 
         return view('auth.login', ['test', $users]);
-        // return User::get(); //Nên dùng Eloquent cho chủ thể users (Liên quan đến phân quyền)
-        //Phong cách query builder DB::table('users')
-        // $users = User::join('departments', 'users.department_id', '=', 'departments.id')
-        //     ->join('user_status', 'users.status_id', '=', 'user_status.id')
-        //     ->select('users.*', 'departments.name as department_name', 'user_status.name as status_name')
-        //     ->get();
-        // dd($users->all());
-        // return response()->json($users, 200);
     }
 
     public function show($id)

@@ -53,9 +53,9 @@
             style="position: fixed; top: 20px; right: 20px; z-index: 999; font-size: 20px; background-color: pink; padding: 5px 10px;">
             <a href="{{ route('app.setLocale', ['locale' => 'en']) }}"
                 style="border-right: 1px solid red; padding: 5px;">EN</a>
-
             <a href="{{ route('app.setLocale', ['locale' => 'vi']) }}" style="padding: 5px;">VI</a>
         </div>
+        @include('layouts.partials.messages')
     @show
     {{-- <div id="app">
         @yield('app')

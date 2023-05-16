@@ -29,10 +29,10 @@ class RegisterRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'email' => 'required|email|unique:users',
+            'email' => 'required|email:rfc,dns|unique:users,email',
             'phone' => 'required|unique:users',
             'password' => 'required|min:8|max:20|confirmed',
-            'password_confirmation' => 'required',
+            'password_confirmation' => 'required|same:password',
         ];
     }
     // public function messages()
@@ -44,20 +44,5 @@ class RegisterRequest extends FormRequest
     //         'password.min' => 'validation.mixed',
     //         'password_confirmation.required' => 'validation.password_confirmation'
     //     ];
-    // }
-    // protected function failedValidation(Validator $validator)
-    // {
-    //     throw (new ValidationException($validator))
-    //         ->errorBag($this->errorBag)
-    //         ->redirectTo($this->getRedirectUrl());
-    // }
-    // {
-    // throw new HttpResponseException(response()->json($validator->errors(), 422));
-    // $errors = (new ValidationException($validator))->errors();
-    // throw new HttpResponseException(response()->json(
-    //     ['error' => $errors,'status_code' => 422,],
-    //     JsonResponse::HTTP_UNPROCESSABLE_ENTITY
-    // ));
-    // throw new HttpResponseException(response()->json($validator->errors(), 422));
     // }
 }

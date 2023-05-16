@@ -13,5 +13,11 @@
     "Remember Me": "Ghi nhớ tài khoản",
     "Home": "Trang chủ",
     "Welcome to EI Germany!": "Chào mừng bạn đã đến với EI Germany!",
-    "Enter your email to initiate password recovery.": "Hãy nhập email của bạn để bắt đầu lấy lại mật khẩu."
+    "Enter your email to initiate password recovery.": "Hãy nhập email của bạn để bắt đầu lấy lại mật khẩu.",
+    "User created successfully.": "Tạo tài khoản thành công.",
+    "An error occurred! Please try again.": "Có lỗi xảy ra! Vui lòng thử lại",
+    "Incorrect account or password!": "Tài khoản hoặc mật khẩu không chính xác!",
+    "This account could not be found!": "Không thể tìm thấy tài khoản này!",
+    "Logged in successfully": "Đăng nhập thành công",
+    "Account not activated yet! Please activate your account.": "Tài khoản chưa được kích hoạt! Hãy kích hoạt tài khoản của bạn."
 }

@@ -13,5 +13,11 @@
     "Remember Me": "Remember Me",
     "Home": "Home",
     "Enter your email to initiate password recovery.": "Enter your email to initiate password recovery.",
-    "Welcome to EI Germany!": "Welcome to EI Germany!"
+    "Welcome to EI Germany!": "Welcome to EI Germany!",
+    "User created successfully.": "User created successfully.",
+    "An error occurred! Please try again.": "An error occurred! Please try again.",
+    "Incorrect account or password!": "Incorrect account or password!",
+    "This account could not be found!": "This account could not be found!",
+    "Logged in successfully": "Logged in successfully",
+    "Account not activated yet! Please activate your account.": "Account not activated yet! Please activate your account."
 }

@@ -22,9 +22,9 @@
                             class="js-validateform">
                             @csrf
                             <div class="login-top">
-                                <a href="login.html" class="btn btn-back">
+                                <a href="/login" class="btn btn-back">
                                     <img src="{{ Vite::asset('resources/assets/icon/left-arrow-0.png') }}" alt=""
-                                        class="icon-back" />{{ __('Forgotten password') }}</a>
+                                        class="icon-back" />{{ __('Login') }}</a>
                             </div>
                             <div class="login-middle">
                                 <img src="./uploads/logo/logo-full-428x104.png" alt="Logo EI Germeny" class="img-fluid" />
@@ -80,7 +80,7 @@
                                 </div>
                                 <!-- Repeat Password input -->
                                 <div class="form-outline ">
-                                    <div class="div-input @if ($errors->has('password')) form-warning is-invalid @endif">
+                                    <div class="div-input @if ($errors->has('password_confirmation')) form-warning is-invalid @endif">
                                         <span class="icon ti-lock"></span>
                                         <input type="password" id="registerRepeatPassword" class="form-control"
                                             placeholder="{{ __('Repeat password') }}" name="password_confirmation"

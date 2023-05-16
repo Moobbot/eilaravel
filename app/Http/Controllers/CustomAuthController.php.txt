@@ -20,7 +20,7 @@ class CustomAuthController extends Controller
     }
 
 
-    public function customLogin(LoginRequest $request)
+    public function login(LoginRequest $request)
     {
         // $input = $request->all();
         // $input['password'] = bcrypt($input['password']);
