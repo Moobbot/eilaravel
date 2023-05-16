@@ -4,18 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 // Gọi modal người dung
-use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
-use App\Repositories\Users\UserRepositoryInterface;
+use App\Repositories\Interface\UserRepositoryInterface;
 
 class CustomAuthController extends Controller
 {
     /**
-     * @var UserRepositoryInterface|\App\Repositories\Repository
+     * @var UserRepositoryInterface|\App\Repositories\Interface
      */
     protected $userRepo;
 
@@ -28,9 +27,7 @@ class CustomAuthController extends Controller
     /** */
     public function index()
     {
-        $users = $this->userRepo->getAll();
-
-        return view('auth.login', ['test', $users]);
+        return view('auth.login');
     }
 
     /** */
@@ -45,7 +42,7 @@ class CustomAuthController extends Controller
     /** */
     public function registration()
     {
-        return view('auth.registration');
+        return view('auth.register');
     }
 
     /** */
@@ -58,8 +55,8 @@ class CustomAuthController extends Controller
         $validated['status_id']  = 2;
         $validated['department_id']  = 2;
         // dd($validated);
-        $user = new User();
-        $user = User::create($validated);
+        // $user = new User();
+        // $user = User::create($validated);
         // dd($request->all());
 
         // The incoming request is valid...
@@ -76,16 +73,19 @@ class CustomAuthController extends Controller
     /** */
     public function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password'])
-        ]);
+        if (!$this->userRepo->create($data)) {
+            # code...
+            return view('auth.register', ['errorMsg' => 'Đã có lỗi, vui lòng thử lại!']);
+        }
+        return view('auth.login', ['successMsg' => 'Tạo tài khoản thành công!']);
     }
 
     /** */
     public function dashboard()
     {
+        // $users = $this->userRepo->all();
+        // dd($users);
+        // return view('auth.login', ['test', $users]);
         if (Auth::check()) {
             return view('auth.dashboard');
         }
