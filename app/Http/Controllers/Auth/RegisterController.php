@@ -1,12 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\RegisterRequest;
 use App\Repositories\Interface\UserRepositoryInterface;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
 
 class RegisterController extends Controller
 {
@@ -40,18 +38,14 @@ class RegisterController extends Controller
      */
     public function register(RegisterRequest $request)
     {
-        // $user['password'] = bcrypt($user['password']);
-        // $user = User::($user);
-        // return response()->json(['success' => 'Tạo thành công'], 200);
-        // The incoming request is valid...
         $user = $request->validated();
-        // Retrieve the validated input data...
+
         if (!$this->userRepo->createUser($user)) {
-            # code...
             return back()->with('error', trans("'An error occurred! Please try again.'"));
         }
-        // Retrieve a portion of the validated input data...
-        // auth()->login($user);
+
+        auth()->login($user);
+
         return redirect('login')->with('success', trans("User created successfully."));
     }
 }

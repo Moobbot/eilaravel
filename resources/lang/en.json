@@ -5,6 +5,7 @@
     "Continue": "Continue",
     "Loading...": "Loading...",
     "Login": "Login",
+    "Logout": "Logout",
     "Register": "Register",
     "Password": "Password",
     "Repeat password": "Repeat password",
@@ -17,6 +18,7 @@
     "User created successfully.": "User created successfully.",
     "An error occurred! Please try again.": "An error occurred! Please try again.",
     "Incorrect account or password!": "Incorrect account or password!",
+    "Incorrect password!": "Incorrect password!",
     "This account could not be found!": "This account could not be found!",
     "Logged in successfully": "Logged in successfully",
     "Account not activated yet! Please activate your account.": "Account not activated yet! Please activate your account."

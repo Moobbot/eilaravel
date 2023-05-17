@@ -46,17 +46,33 @@
 </head>
 
 <body>
+    <div id="preloader">
+        <div class="spinner-border logo-preload" role="status">
+            <span class="visually-hidden">{{ __('Loading...') }}</span>
+        </div>
+    </div>
     {{-- @section('sidebar') @show  Nếu dùng @show sẽ xác định nội dung bên trong section và xây dựng html --}}
     {{-- @yield('content', 'Default content') --}}
-    @section('content')
-        <div class="test-lang"
-            style="position: fixed; top: 20px; right: 20px; z-index: 999; font-size: 20px; background-color: pink; padding: 5px 10px;">
-            <a href="{{ route('app.setLocale', ['locale' => 'en']) }}"
-                style="border-right: 1px solid red; padding: 5px;">EN</a>
-            <a href="{{ route('app.setLocale', ['locale' => 'vi']) }}" style="padding: 5px;">VI</a>
+    <main
+        class="page-{{ Request::is('home/*')
+            ? 'home'
+            : (Request::is('login', 'login/*', 'register', 'register/*')
+                ? 'login'
+                : 'abc') }}">
+        {{-- class="page-{{ Request::is('home/*') ? 'home' : (Request::is('login') || Request::is('login/*') ? 'login' : 'abc') }}"> --}}
+        <div class="wrapper">
+            <div class="wrapper-container">
+                @section('content')
+                    <div class="test-lang"
+                        style="position: fixed; top: 20px; right: 20px; z-index: 999; font-size: 20px; background-color: pink; padding: 5px 10px;">
+                        <a href="{{ route('app.setLocale', ['locale' => 'en']) }}"
+                            style="border-right: 1px solid red; padding: 5px;">EN</a>
+                        <a href="{{ route('app.setLocale', ['locale' => 'vi']) }}" style="padding: 5px;">VI</a>
+                    </div>
+                @show
+            </div>
         </div>
-        @include('layouts.partials.messages')
-    @show
+    </main>
     {{-- <div id="app">
         @yield('app')
     </div> --}}

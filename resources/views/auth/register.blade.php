@@ -8,11 +8,6 @@
     <main class="page-login">
         <div class="wrapper">
             <div class="wrapper-container">
-                <div id="preloader">
-                    <div class="spinner-border logo-preload" role="status">
-                        <span class="visually-hidden">{{ __('Loading...') }}</span>
-                    </div>
-                </div>
                 <div class="block-login row">
                     <div class="login-left col-lg-7 col-md-6 d-sm-none d-md-flex">
                         <img src="./uploads/logo/logo-white-432x105.png" alt="Logo EIGermeny" class="img-fluid" />

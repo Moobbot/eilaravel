@@ -21,10 +21,10 @@ interface UserRepositoryInterface extends BaseRepositoryInterface
     public function createUser(array $attributes);
 
     /**
-     * Check user login
+     * Check form login
      *
      * @param  array  $userlogin
-     * @return bool|array
+     * @return array [bool, text|null]
      */
-    public function checkEmail($userlogin);
+    public function checkLogin($userlogin);
 }

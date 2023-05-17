@@ -20,5 +20,21 @@
 
 @section('content')
     @parent
-    <a href="/login">{{ __('Login') }}</a>
+    @extends('layouts.partials.header')
+
+    @auth
+        <a href="/logout">{{ __('Logout') }}</a>
+        <h1>Dashboard</h1>
+        <p class="lead">Only authenticated users can access this section.</p>
+    @endauth
+
+    @guest
+        <a href="/login">{{ __('Login') }}</a>
+        <div class="">
+            <h1>Đây là trang chủ - chưa đăng nhập</h1>
+            <p class="lead">Your viewing the home page. Please login to view the restricted data.</p>
+        </div>
+    @endguest
+    @extends('layouts.partials.footer')
+
 @endsection

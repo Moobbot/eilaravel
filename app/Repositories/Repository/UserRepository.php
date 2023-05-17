@@ -25,7 +25,7 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
 
     public function getUser($email)
     {
-        return $this->model->find($email, 'email');
+        return $this->model->where($email, 'email');
         // User::where('email', $email)->first();
         // return User::get(); //Nên dùng Eloquent cho chủ thể users (Liên quan đến phân quyền)
         //Phong cách query builder DB::table('users')
@@ -50,7 +50,7 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
         // $user = User::create($validated);
     }
 
-    public function checkEmail($request)
+    public function checkLogin($request)
     {
 
         // dd($request);
@@ -58,18 +58,23 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
 
         //If user login first time with steam and his id is not in database redirect to email input page
         // return $user ? true : false;
-        if (!$user) :
-            return trans("This account could not be found!");
-        elseif (Hash::check($request['password'], $user['password'])) :
-            // Passwords match
-            // Perform the necessary actions for successful comparison
-            if ($user['status_id'] == 1) :
-                return trans("Logged in successfully");
-            endif;
-            return trans("Account not activated yet! Please activate your account.");
-        endif;
-        return true;
-        // Passwords do not match
-        // Handle the failed comparison
+        if ($user) {
+            if (Hash::check($request['password'], $user['password'])) {
+                // Passwords match
+                // Perform the necessary actions for successful comparison
+                if ($user['status_id'] == 1) {
+                    $this->update($user['email'], array('login_at' => now()), "email");
+
+                    return [true, trans("Logged in successfully")];
+                } else {
+                    return [false, trans("Account not activated yet! Please activate your account.")];
+                }
+            } else {
+                // Passwords do not match
+                // Handle the failed comparison
+                return [false, trans("Incorrect password!")];
+            }
+        }
+        return [false, trans("This account could not be found!")];
     }
 }

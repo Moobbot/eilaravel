@@ -31,42 +31,50 @@ Route::get('setLocale/{locale}', function ($locale) {
     return redirect()->back();
 })->name('app.setLocale');
 /* Edit Language End */
+Route::view('/welcome', 'welcome');
 
 Route::group(['namespace' => 'App\Http\Controllers'], function () {
+    // Controllers Within The "App\Http\Controllers\Admin" Namespace
     /**
      * Home Routes
      */
     Route::get('/', 'HomeController@index')->name('home.index');
-    Route::get('home', 'HomeController@index')->name('home.index');
+    Route::get('home', 'HomeController@index')->name('home.home');
 
     Route::group(['middleware' => ['guest']], function () {
-        // Route::get('dashboard', 'CustomAuthController@dashboard')->name('dashboard');
 
-        /**
-         * Login Routes
-         */
-        Route::get('login', 'LoginController@index')->name('login');
-        Route::post('login', 'LoginController@login')->name('login.custom');
+        Route::group(['namespace' => 'Auth'], function () {
+            // Controllers Within The "App\Http\Controllers\Auth" Namespace
 
-        /**
-         * Register Routes
-         */
-        Route::get('register', 'RegisterController@index')->name('register');
-        Route::post('registration', 'RegisterController@register')->name('register.custom');
+            /**
+             * Login Routes
+             */
+            Route::get('login', 'LoginController@index')->name('login');
+            Route::post('login', 'LoginController@login')->name('login.custom');
+
+            /**
+             * Register Routes
+             */
+            Route::get('register', 'RegisterController@index')->name('register');
+            Route::post('registration', 'RegisterController@register')->name('register.custom');
+        });
     });
 
     /**
      * The logout route that can be access only if user authenticated.
      */
     Route::group(['middleware' => ['auth']], function () {
-        /**
-         * Logout Routes
-         */
-        Route::get('signout', 'LogoutController@signout')->name('signout');
+
+        Route::group(['namespace' => 'Auth'], function () {
+            /**
+             * Logout Routes
+             */
+            Route::get('logout', 'LogoutController@logout')->name('logout');
+        });
     });
 
+    // Route::middleware(['auth', 'auth.session'])->group(function () { });
     // User
     Route::get('/users', [UserController::class, 'index']);
     Route::get('/users/create', [UserController::class, 'create']);
 });
-Route::view('/', 'welcome');

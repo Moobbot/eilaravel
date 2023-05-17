@@ -5,6 +5,7 @@
     "Continue": "Tiếp tục",
     "Loading...": "Đang tải...",
     "Login": "Đăng nhập",
+    "Logout": "Đăng xuất",
     "Register": "Đăng ký",
     "Password": "Mật khẩu",
     "Repeat password": "Nhập lại mật khẩu",
@@ -17,6 +18,7 @@
     "User created successfully.": "Tạo tài khoản thành công.",
     "An error occurred! Please try again.": "Có lỗi xảy ra! Vui lòng thử lại",
     "Incorrect account or password!": "Tài khoản hoặc mật khẩu không chính xác!",
+    "Incorrect password!": "Mật khẩu không chính xác!",
     "This account could not be found!": "Không thể tìm thấy tài khoản này!",
     "Logged in successfully": "Đăng nhập thành công",
     "Account not activated yet! Please activate your account.": "Tài khoản chưa được kích hoạt! Hãy kích hoạt tài khoản của bạn."
