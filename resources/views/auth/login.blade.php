@@ -27,13 +27,7 @@
                     <div class="login-form">
                         <!-- Email/phone input -->
                         <div class="form-outline">
-                            <div
-                                class="div-input
-                            @if ($errors->has('email')) form-warning @endif
-                            {{-- {{
-                                @if ($errors->has('email')){ echo("form-warning");}
-                            }} --}}
-                            ">
+                            <div class="div-input @if ($errors->has('email')) form-warning @endif">
                                 <span class="icon ti-email"></span>
                                 <input type="email" id="formAccount" class="form-control" placeholder="Ex: abc@gmail.com"
                                     name="email" autofocus />
@@ -44,10 +38,7 @@
                         </div>
                         <!-- Password input -->
                         <div class="form-outline">
-                            <div
-                                class="div-input
-                            @if ($errors->has('password')) form-warning @endif
-                            ">
+                            <div class="div-input @if ($errors->has('password')) form-warning @endif">
                                 <span class="icon ti-lock"></span>
                                 <input type="password" id="formPassword" class="form-control" placeholder="Mật khẩu"
                                     name="password" />
