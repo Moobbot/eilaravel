@@ -51,10 +51,13 @@ return [
 
         'mailgun' => [
             'transport' => 'mailgun',
+            'domain' => env('MAILGUN_DOMAIN'),
+            'secret' => env('MAILGUN_SECRET'),
         ],
 
         'postmark' => [
             'transport' => 'postmark',
+            'token' => env('POSTMARK_TOKEN'),
         ],
 
         'sendmail' => [

@@ -30,6 +30,7 @@ Route::get('setLocale/{locale}', function ($locale) {
     }
     return redirect()->back();
 })->name('app.setLocale');
+
 /* Edit Language End */
 Route::view('/welcome', 'welcome');
 

@@ -16,5 +16,8 @@ return [
     'failed' => 'These credentials do not match our records.',
     'password' => 'The provided password is incorrect.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    "error-try" => "An error occurred! Please try again.",
+    "Incorrect" => "Incorrect account or password!",
+    "Incorrect-password" => "Incorrect password!",
 
 ];
