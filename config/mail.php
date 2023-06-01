@@ -79,6 +79,8 @@ return [
             'mailers' => [
                 'smtp',
                 'log',
+                'postmark',
+                'mailgun',
             ],
         ],
     ],
@@ -95,8 +97,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'ngotamqn01@gmail.com'),
+        'name' => env('MAIL_FROM_NAME', 'Test send mail laravel'),
     ],
 
     /*

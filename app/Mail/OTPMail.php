@@ -9,21 +9,18 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class ActiveAccountMail extends Mailable
+class OTPMail extends Mailable
 {
     use Queueable, SerializesModels;
-
-    public $mailData;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($mailData)
+    public function __construct()
     {
         //
-        $this->mailData = $mailData;
     }
 
     /**
@@ -34,11 +31,7 @@ class ActiveAccountMail extends Mailable
     public function envelope()
     {
         return new Envelope(
-            // from: new Address('ngotamqn01@gmail.com', 'Test send mail laravel'),
-            // replyTo: [
-            //     new Address('ngotamqn01@gmail.com', 'Test send mail laravel'),
-            // ],
-            subject: 'Active Account Mail',
+            subject: 'O T P Mail',
         );
     }
 
@@ -50,7 +43,7 @@ class ActiveAccountMail extends Mailable
     public function content()
     {
         return new Content(
-            html: 'mail.Address', //view: ...
+            view: 'view.name',
         );
     }
 
@@ -62,16 +55,5 @@ class ActiveAccountMail extends Mailable
     public function attachments()
     {
         return [];
-    }
-
-    /**
-     * Build mail.
-     *
-     * @return array
-     */
-    public function build()
-    {
-        return $this->subject('Verify your email address')
-            ->markdown('mail.Address');
     }
 }

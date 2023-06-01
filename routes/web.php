@@ -45,7 +45,6 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::group(['middleware' => ['guest']], function () {
 
         Route::group(['namespace' => 'Auth'], function () {
-            // Controllers Within The "App\Http\Controllers\Auth" Namespace
 
             /**
              * Login Routes
@@ -59,6 +58,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
             Route::get('register', 'RegisterController@index')->name('register');
             Route::post('registration', 'RegisterController@register')->name('register.custom');
         });
+        
+        Route::get('send-mail', [MailController::class, 'index']);
     });
 
     /**
